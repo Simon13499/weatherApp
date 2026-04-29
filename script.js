@@ -88,13 +88,12 @@ async function getWeather() {
           <div class="forecast-day rounded-[2rem] bg-[#0d1b35]/90 border border-white/10 shadow-2xl p-6 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] transition">
           <div class="forecast-icon text-3xl">${dayIcon}</div>
             <p class="text-xl font-semibold">${new Date(day).toLocaleDateString()}</p>
-            <p class="mt-1 font-[500]">Max:</p>
+            <p class="mt-1 text-[14px] font-[500]">Maximální teplota:</p>
             <p class="bg-yellow-400 p-2 font-semibold text-black mt-1 rounded-xl"> ${daily.temperature_2m_max[index]} °C</p>
-            <p class="mt-1 font-[500]">Min:</p>
+            <p class="mt-1 text-[14px] font-[500]">Minimální teplota:</p>
             <p class="bg-[#0d1b35]/90 border border-white/10 shadow-2xl p-2 mt-1 font-semibold rounded-xl">  ${daily.temperature_2m_min[index]} °C</p>
             <p class="mt-2 text-2xl">💧</p>
             <p class="text-white p-2">${daily.precipitation_sum[index]} mm</p>
-
           </div>
         `;
       })
