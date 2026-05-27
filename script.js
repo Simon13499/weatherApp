@@ -54,6 +54,7 @@ async function getWeather() {
       `https://geocoding-api.open-meteo.com/v1/search?name=${cityText}`
     );
     const geoData = await geoRes.json();
+    
 
     const location = geoData.results?.[0];
 
@@ -63,13 +64,13 @@ async function getWeather() {
       return;
     }
 
-    
+// destrukturace pro snadnější přístup k datům    
     const { latitude, longitude, name, country } = location;
 
     localStorage.setItem("city", cityText);
 
 
-    // Načteme počasí
+    // Načteme počasí používáme pouze latitude a longitude díky desturukturaci... 
    const weatherRes = await fetch(
   `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m,relative_humidity_2m,weather_code,precipitation&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_sum&hourly=temperature_2m,wind_speed_10m,relative_humidity_2m,weather_code`
 );
@@ -149,7 +150,6 @@ forecast.addEventListener("click", (event) => {
   <table class="w-full text-sm text-white border-separate border-spacing-0">
     <thead class="bg-white/10 text-white/90">
       <tr>
-        <!-- První a poslední buňka v thead musí mít zaoblený roh manuálně -->
         <th class="px-6 py-4 font-bold uppercase tracking-wider text-center">Čas</th>
         <th class="px-6 py-4 font-bold uppercase tracking-wider text-center">Teplota</th>
         <th class="px-6 py-4 font-bold uppercase tracking-wider text-center">Vítr</th>
@@ -182,10 +182,3 @@ if (savedCity) {
   city.value = savedCity;
   getWeather();
 }
-
-
-const temps = [12, 18, 25, 30, 15, 22];
-
-const tempnumbers = temps.filter(t => t >= 20).map(t => `"🔥 ${t} °C"`).join(", ");
-
-console.log(tempnumbers);
