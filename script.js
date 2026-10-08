@@ -90,7 +90,8 @@ async function getWeather() {
       .map((day, index) => {
         const dayIcon = weatherIcons[daily.weather_code[index]] || "🌡️";
         return `
-          <div class="forecast-day rounded-[2rem] bg-[#0d1b35]/90 border border-white/10 shadow-2xl p-6 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] transition" data-day="${day}">
+          <div class="forecast-day rounded-[2rem] bg-[#0d1b35]/90 border border-white/10 shadow-2xl p-6 cursor-pointer hover:bg-[#142440] hover:border-white/20 transition-colors duration-200"
+          data-day="${day}">
           <div class="forecast-icon text-3xl">${dayIcon}</div>
             <p class="text-xl font-semibold">${new Date(day).toLocaleDateString()}</p>
             <p class="mt-1 text-[14px] font-[500]">Maximální teplota:</p>

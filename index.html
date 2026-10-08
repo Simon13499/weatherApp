@@ -24,9 +24,29 @@
         class="rounded-2xl bg-white/10 border border-white/10 px-5 py-4 text-lg text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-yellow-400 w-full" 
         placeholder="Zadej město"
       >
-      <button id="searchBtn" type="button" class="w-16 rounded-2xl bg-yellow-400 text-2xl text-black hover:bg-yellow-300 transition">
-        🔍
-      </button>
+      
+        <button
+          id="searchBtn"
+          type="button"
+          aria-label="Vyhledat město"
+          class="w-16 rounded-2xl bg-yellow-400 text-black flex items-center justify-center hover:bg-yellow-300 transition-colors duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+
     </div>
 
     <p class="weather-status mb-4"></p>
